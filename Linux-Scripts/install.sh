@@ -10,7 +10,8 @@ yum install epel-release -y && yum groupinstall 'Development Tools' -y
 
 # These are important linux packages that I always include on any server build
 # These tend to be mostly automatically installed, but I like to double check
-yum install microcode_ctl linux-firmware -y && yum install kernel-devel kernel-debug-devel dkms -y
+yum install microcode_ctl linux-firmware -y
+yum install kernel-devel kernel-debug-devel dkms -y
 
 # This will enable DNF and SSH, and supply network troubleshooting tools
 yum install dnf fail2ban openssh-server bind-utils net-tools -y
@@ -40,7 +41,8 @@ firewall-cmd --permanent --add-port=8443/tcp
 firewall-cmd --reload
 
 
-echo "Install complete. Thanks for using this simple script!"
+echo "Install complete. You should reboot now and configure SSH and Fail2Ban afterwards."
+echo "Thanks for using this simple script!"
 sleep 2
 
 exit 0

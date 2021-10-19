@@ -30,6 +30,7 @@ pip3 install bpytop
 export PATH=$PATH:/home/$USER/.local/bin/
 curl -o /etc/yum.repos.d/konimex-neofetch-epel-7.repo https://copr.fedorainfracloud.org/coprs/konimex/neofetch/repo/epel-7/konimex-neofetch-epel-7.repo
 sudo yum install neofetch
+sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 sleep 2
 
 echo "Install complete. You should reboot now and configure SSH and Fail2Ban afterwards."

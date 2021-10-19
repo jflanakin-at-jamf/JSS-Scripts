@@ -8,3 +8,4 @@ apt install sudo vim open-vm-tools openssh-server ufw molly-guard fail2ban dnsut
 apt install gcc make check git tar gzip wget curl rsync nmon htop tmux neofetch zsh bpytop
 sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 
+exit 0

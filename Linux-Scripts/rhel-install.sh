@@ -39,4 +39,4 @@ sleep 2
 echo "Install complete. You should reboot now and configure SSH and Fail2Ban afterwards."
 echo "Thanks for using this simple script!"
 
-exit 0ls 
+exit 0

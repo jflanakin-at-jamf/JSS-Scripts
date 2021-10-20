@@ -37,16 +37,7 @@ sleep 2
 
 # This will install Java and MySQL for Jamf Pro, then enable firewall rules
 yum install java-11-openjdk-devel -y
-cd /tmp
-curl -OL https://dev.mysql.com/get/mysql80-community-release-el7-3.noarch.rpm
-yum install mysql80-community-release-el7-*noarch.rpm -y
-yum install mysql-community-server -y
-/sbin/chkconfig --levels 345 mysqld on
-systemctl start mysqld.service
-echo "Grab the temporary password from here for the MySQL Secure Installation next:"
-grep 'temporary password' /var/log/mysqld.log
 sleep 2
-mysql_secure_installation
 
 # To do: add auto-download and auto-run for JSS from SMB distribution
 firewall-cmd --permanent --add-port=8443/tcp

@@ -37,6 +37,11 @@ sleep 2
 
 # This will install Java and MySQL for Jamf Pro, then enable firewall rules
 yum install java-11-openjdk-devel -y
+cd /tmp
+curl -OL https://dev.mysql.com/get/mysql80-community-release-el7-3.noarch.rpm
+yum install mysql80-community-release-el7-*noarch.rpm -y
+yum update -y
+yum install mysql -y
 sleep 2
 
 # To do: add auto-download and auto-run for JSS from SMB distribution

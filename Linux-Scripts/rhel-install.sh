@@ -25,15 +25,18 @@ firewall-cmd --reload
 sleep 2
 
 # These packages below are useful, but not always required. 
-yum install vim python3 python3-pip check git tar gzip wget curl rsync nmon htop tmux zsh -y
-pip3 install bpytop
-export PATH=$PATH:/home/$USER/.local/bin/
+yum install vim python3 python3-psutil check git tar gzip wget curl rsync nmon htop tmux zsh -y
+
 curl -o /etc/yum.repos.d/konimex-neofetch-epel-7.repo https://copr.fedorainfracloud.org/coprs/konimex/neofetch/repo/epel-7/konimex-neofetch-epel-7.repo
-sudo yum install neofetch
-sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+yum install neofetch -y
+
+cd /tmp
+git clone https://github.com/aristocratos/bpytop.git
+cd /tmp/bpytop
+make install
 sleep 2
 
 echo "Install complete. You should reboot now and configure SSH and Fail2Ban afterwards."
 echo "Thanks for using this simple script!"
 
-exit 0
+exit 0ls 

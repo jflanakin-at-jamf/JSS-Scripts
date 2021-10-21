@@ -2,23 +2,24 @@
 # this script installs the necessary packages for a secure RHEL/CentOS Jamf Pro server
 # This mostly follows the Jamf Pro installation guide, but I also add EPEL
 # packages for some software I enjoy having on servers. 
-yum update -y
+dnf update -y
 sleep 2
 
 # Enables EPEL, Extra Packages for Enterprise Linux. This is a well known package stream
 # that most people agree is safe to use. 
-yum install epel-release -y
+dnf install epel-release -y
+dnf update -y
 sleep 2
 
 # These are important linux packages that I always include on any server build
 # These tend to be mostly automatically installed, but I like to double check
-yum install microcode_ctl linux-firmware -y
-yum install kernel-devel kernel-debug-devel dkms -y
+dnf install microcode_ctl linux-firmware -y
+dnf install kernel-devel kernel-debug-devel dkms -y
 sleep 2
 
 # This will enable DNF and SSH, and supply network troubleshooting tools
 yum groupinstall 'Development Tools' -y
-yum install dnf gcc fail2ban openssl openssl-devel openssh-server bind-utils net-tools -y
+yum install gcc fail2ban openssl openssl-devel openssh-server bind-utils net-tools -y
 firewall-cmd --permanent --add-service=ssh
 firewall-cmd --reload
 sleep 2
@@ -26,7 +27,7 @@ sleep 2
 # These packages below are useful, but not always required. 
 yum install vim python3 python3-psutil check git tar gzip wget curl rsync nmon htop tmux zsh -y
 
-curl -o /etc/yum.repos.d/konimex-neofetch-epel-7.repo https://copr.fedorainfracloud.org/coprs/konimex/neofetch/repo/epel-7/konimex-neofetch-epel-7.repo
+curl -o /etc/yum.repos.d/konimex-neofetch-epel-8.repo https://copr.fedorainfracloud.org/coprs/konimex/neofetch/repo/epel-8/konimex-neofetch-epel-8.repo
 yum install neofetch -y
 
 cd /tmp
@@ -38,8 +39,8 @@ sleep 2
 # This will install Java and MySQL for Jamf Pro, then enable firewall rules
 yum install java-11-openjdk-devel -y
 cd /tmp
-curl -OL https://dev.mysql.com/get/mysql80-community-release-el7-3.noarch.rpm
-yum install mysql80-community-release-el7-*noarch.rpm -y
+curl -OL https://dev.mysql.com/get/mysql80-community-release-el8-3.noarch.rpm
+yum install mysql80-community-release-el8-*noarch.rpm -y
 yum update -y
 yum install mysql -y
 sleep 2

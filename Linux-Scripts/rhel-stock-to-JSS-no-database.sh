@@ -18,23 +18,13 @@ dnf install kernel-devel kernel-debug-devel dkms -y
 sleep 2
 
 # This will enable DNF and SSH, and supply network troubleshooting tools
-yum groupinstall 'Development Tools' -y
-yum install gcc fail2ban openssl openssl-devel openssh-server bind-utils net-tools -y
+dnf install gcc fail2ban openssl openssl-devel openssh-server bind-utils net-tools -y
 firewall-cmd --permanent --add-service=ssh
 firewall-cmd --reload
 sleep 2
 
 # These packages below are useful, but not always required. 
-yum install vim python3 python3-psutil check git tar gzip wget curl rsync nmon htop tmux zsh -y
-
-curl -o /etc/yum.repos.d/konimex-neofetch-epel-8.repo https://copr.fedorainfracloud.org/coprs/konimex/neofetch/repo/epel-8/konimex-neofetch-epel-8.repo
-yum install neofetch -y
-
-cd /tmp
-git clone https://github.com/aristocratos/bpytop.git
-cd /tmp/bpytop
-make install
-sleep 2
+dnf install vim neofetch bpytop python3 python3-psutil check git tar gzip wget curl rsync nmon htop tmux zsh -y
 
 # This will install Java and MySQL for Jamf Pro, then enable firewall rules
 yum install java-11-openjdk-devel -y

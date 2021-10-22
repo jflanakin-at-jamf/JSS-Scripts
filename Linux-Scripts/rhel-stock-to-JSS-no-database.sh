@@ -24,7 +24,7 @@ firewall-cmd --reload
 sleep 2
 
 # These packages below are useful, but not always required. 
-dnf install vim neofetch bpytop python3 python3-psutil check git tar gzip wget curl rsync nmon htop tmux zsh -y
+dnf install vim bpytop python3 python3-psutil check git tar gzip wget curl rsync nmon htop tmux zsh -y
 
 # This will install Java and MySQL for Jamf Pro, then enable firewall rules
 yum install java-11-openjdk-devel -y

@@ -5,7 +5,7 @@ JAMFBIN="/usr/local/bin/jamf"
 
 # Notify Mechanism:
 # Change the default text displayed to the user
-echo "Command: MainTitle: Welcome to AnyCo!" >> /var/tmp/depnotify.log
+echo "Command: MainTitle: Welcome to RubyRaccoon!" >> /var/tmp/depnotify.log
 echo "Command: MainText: Welcome to your new Mac.\\nSit tight as we do some basic setup to get you ready for success.\\nYou can see the status of the setup on the progress bar below." >> /var/tmp/depnotify.log
 
 # Update the user of the status of the onboarding
